@@ -20,8 +20,8 @@ export default function About() {
               work.
             </p>
             <p className="reveal reveal-delay-2" style={{ ...paraStyle, marginTop: 20 }}>
-              Currently looking for internships and research opportunities for
-              Summer 2026.
+              Currently a Software Engineer Intern at Databricks, building
+              backend telemetry and distributed systems infrastructure.
             </p>
           </div>
 
@@ -36,7 +36,7 @@ export default function About() {
             <p style={{ ...subheadStyle, marginTop: 32 }} className="reveal reveal-delay-2">Education</p>
             <div className="reveal reveal-delay-3">
               <p style={eduPrimaryStyle}>University of California, Los Angeles</p>
-              <p style={eduSecStyle}>B.S. Computer Science · 2023 – 2027</p>
+              <p style={eduSecStyle}>B.S. Computer Science & Applied Mathematics · Expected Dec 2026</p>
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 const socials = [
-  { label: "GitHub", href: "https://github.com/jeffreyliu" },
-  { label: "LinkedIn", href: "https://linkedin.com/in/jeffreyliu" },
+  { label: "GitHub", href: "https://github.com/jeffreyl1234" },
+  { label: "LinkedIn", href: "https://linkedin.com/in/jeffreylliu" },
   { label: "Email", href: "mailto:jeffreyliu459@gmail.com" },
 ];
 

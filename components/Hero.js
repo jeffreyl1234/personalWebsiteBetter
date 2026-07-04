@@ -23,7 +23,7 @@ export default function Hero() {
 
         <div style={ctaStyle}>
           <a
-            href="https://github.com/jeffreyliu"
+            href="https://github.com/jeffreyl1234"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"

@@ -8,12 +8,44 @@ const projects = [
     year: "2025",
   },
   {
-    title: "GBM Delta Hedging Simulator",
+    title: "Limit Order Book & Matching Engine",
     description:
-      "High-performance Monte Carlo simulation for European option delta hedging. Multi-backend: C++ OpenMP, PyTorch GPU, NumPy — 15× speedup over naive Python.",
-    tags: ["C++", "Python", "PyTorch", "OpenMP"],
-    href: "https://github.com/jeffreyl1234/BTWN/tree/main/gbmdeltahedging",
+      "Single-threaded limit order book with a price-time-priority matching engine, a NASDAQ TotalView-ITCH 5.0 replay parser, and a nanosecond-scale benchmark harness. C++20, CI-tested, zero external dependencies.",
+    tags: ["C++20", "CMake", "Systems"],
+    href: "https://github.com/jeffreyl1234/orderBook",
+    year: "2026",
+  },
+  {
+    title: "Speculative Decoding Inference Engine",
+    description:
+      "From-scratch PyTorch implementation of speculative decoding (Leviathan, Kalman & Matias, 2023) — GPT-2-small drafting for GPT-2-XL, with custom rejection sampling and KV-cache rollback.",
+    tags: ["Python", "PyTorch"],
+    href: "https://github.com/jeffreyl1234/speculativeDecoding",
+    year: "2026",
+  },
+  {
+    title: "Delta Hedging Simulator & Optimization",
+    description:
+      "High-performance Monte Carlo simulation for GBM/Black-Scholes delta hedging. C++/CUDA backend hits 50K+ parallel paths with a 15× speedup over NumPy and 10⁻⁶ error tolerance.",
+    tags: ["C++", "CUDA", "Python", "OpenMP"],
+    href: "https://github.com/jeffreyl1234/Delta-Hedging-SImulator",
     year: "2025",
+  },
+  {
+    title: "TablePal",
+    description:
+      "LLM-powered restaurant chatbot serving 1,000+ monthly users — OpenAI RAG with vector search, Redis rate limiting, and 15+ API endpoints. (Private repository)",
+    tags: ["React", "Next.js", "Node.js", "OpenAI API"],
+    href: "#",
+    year: "",
+  },
+  {
+    title: "Music Discovery Platform",
+    description:
+      "Spotify login, mood-based playlist generation via OpenAI, artist discovery, and save-to-Spotify history. React/TypeScript frontend, Node/Express backend, MongoDB.",
+    tags: ["React", "TypeScript", "Node.js", "OpenAI API"],
+    href: "https://github.com/jeffreyl1234/musicApp",
+    year: "2026",
   },
 ];
 
@@ -24,32 +56,36 @@ export default function Projects() {
         <p className="section-label reveal">Projects</p>
 
         <div style={gridStyle}>
-          {projects.map((p, i) => (
-            <a
-              key={p.title}
-              href={p.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`card reveal reveal-delay-${(i % 4) + 1}`}
-              style={cardLinkStyle}
-            >
-              <div style={cardHeaderStyle}>
-                <span style={yearStyle}>{p.year}</span>
-                <svg style={arrowStyle} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M7 17L17 7M7 7h10v10" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
+          {projects.map((p, i) => {
+            const hasLink = p.href && p.href !== "#";
+            const Tag = hasLink ? "a" : "div";
+            return (
+              <Tag
+                key={p.title}
+                {...(hasLink ? { href: p.href, target: "_blank", rel: "noopener noreferrer" } : {})}
+                className={`card reveal reveal-delay-${(i % 4) + 1}`}
+                style={cardLinkStyle}
+              >
+                <div style={cardHeaderStyle}>
+                  <span style={yearStyle}>{p.year}</span>
+                  {hasLink && (
+                    <svg style={arrowStyle} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M7 17L17 7M7 7h10v10" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  )}
+                </div>
 
-              <h3 style={titleStyle}>{p.title}</h3>
-              <p style={descStyle}>{p.description}</p>
+                <h3 style={titleStyle}>{p.title}</h3>
+                <p style={descStyle}>{p.description}</p>
 
-              <div style={tagsStyle}>
-                {p.tags.map((t) => (
-                  <span key={t} className="tag">{t}</span>
-                ))}
-              </div>
-            </a>
-          ))}
+                <div style={tagsStyle}>
+                  {p.tags.map((t) => (
+                    <span key={t} className="tag">{t}</span>
+                  ))}
+                </div>
+              </Tag>
+            );
+          })}
         </div>
       </div>
     </section>

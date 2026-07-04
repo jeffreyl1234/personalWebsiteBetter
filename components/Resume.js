@@ -1,16 +1,58 @@
-const education = [
+const experience = [
   {
-    degree: "B.S. Computer Science",
-    org: "University of California, Los Angeles",
-    period: "2023 – 2027",
-    description: "Relevant coursework: Data Structures, Algorithms, Operating Systems, Computer Architecture, Machine Learning.",
+    role: "Software Engineer Intern",
+    org: "Databricks",
+    period: "Jun 2026 – Present",
+    description: "Building backend telemetry services for Databricks Marketplace Apps and distributed systems infra for scalable data-sharing and analytics workflows.",
+  },
+  {
+    role: "Machine Learning Engineer",
+    org: "Gale (YC W25)",
+    period: "Sep 2025 – Dec 2025",
+    description: "Designed Python/SQL ETL pipelines normalizing scraped labor data (+40% coverage) and AWS/Snowflake infrastructure that cut query latency 60%.",
+  },
+  {
+    role: "Software Development Engineer Intern",
+    org: "Amazon Web Services (AWS)",
+    period: "Jun 2025 – Sep 2025",
+    description: "Launched a real-time dashboard for 70+ GlueConnector CI/CD pipelines (95% faster failure detection) and backend microservices with Lambda, CDK, and DynamoDB.",
+  },
+  {
+    role: "Machine Learning Engineer",
+    org: "Flawless AI",
+    period: "May 2024 – Jan 2025",
+    description: "Fine-tuned an EmoAffectNet CNN in PyTorch for emotion detection (+20% accuracy) and built video scraping/metadata-extraction pipelines with Python and OpenCV.",
+  },
+  {
+    role: "Software Engineer Intern",
+    org: "Qualcomm",
+    period: "Jun 2024 – Sep 2024",
+    description: "Architected an internal tool for analyzing EDA-tool data to evaluate SoC design workflows, with YAML-configuration parsing adopted team-wide.",
   },
 ];
 
+const education = [
+  {
+    degree: "B.S. Computer Science, B.S. Applied Mathematics",
+    org: "University of California, Los Angeles",
+    period: "Expected Dec 2026",
+    description: "Coursework: Probability & Statistics, Combinatorics, Real Analysis, Optimization, Linear Algebra, Data Structures & Algorithms, Operating Systems.",
+  },
+];
+
+const honors = [
+  "2× AIME Qualifier",
+  "Dean's Honors List",
+  "Modeling the Future Challenge — 2nd Nationally ($15K award)",
+  "Paper published in SOA ARCH 2023.2",
+  "QuHacks Finalist",
+];
+
 const skills = {
-  Languages: ["C++", "Python", "JavaScript", "SQL"],
-  Frameworks: ["Next.js", "React", "PyTorch", "Node.js"],
-  Tools: ["Git", "Supabase", "PostgreSQL", "Linux"],
+  Languages: ["Python", "C++", "C", "Java", "Go", "SQL", "TypeScript", "Bash"],
+  "Systems & Infra": ["Spark", "Kafka", "gRPC", "Protobuf", "OpenMP", "Kubernetes", "Docker", "CI/CD", "Linux"],
+  "Cloud & Data": ["AWS Lambda", "DynamoDB", "EventBridge", "PostgreSQL", "Snowflake", "Redis", "MongoDB", "Git"],
+  "ML & Tools": ["PyTorch", "CUDA", "Pandas", "NumPy", "React/Next.js", "Node.js", "Claude Code", "Cursor"],
 };
 
 export default function Resume() {
@@ -23,10 +65,22 @@ export default function Resume() {
 
         <div style={twoColStyle}>
           <div>
-            <p style={groupHeadStyle} className="reveal">Education</p>
+            <p style={groupHeadStyle} className="reveal">Experience</p>
+            {experience.map((e, i) => (
+              <TimelineItem key={e.org} item={e} delay={i + 1} />
+            ))}
+
+            <p style={{ ...groupHeadStyle, marginTop: 48 }} className="reveal">Education</p>
             {education.map((e, i) => (
               <TimelineItem key={e.degree} item={{ role: e.degree, ...e }} delay={i + 1} />
             ))}
+
+            <p style={{ ...groupHeadStyle, marginTop: 48 }} className="reveal">Honors</p>
+            <ul style={honorsListStyle} className="reveal">
+              {honors.map((h) => (
+                <li key={h} style={honorItemStyle}>{h}</li>
+              ))}
+            </ul>
           </div>
 
           <div>
@@ -149,6 +203,20 @@ const descStyle = {
   fontSize: 13.5,
   color: "#666",
   lineHeight: 1.7,
+};
+
+const honorsListStyle = {
+  listStyle: "disc",
+  paddingLeft: 18,
+  display: "flex",
+  flexDirection: "column",
+  gap: 10,
+};
+
+const honorItemStyle = {
+  fontSize: 13.5,
+  color: "#888",
+  lineHeight: 1.6,
 };
 
 const skillGroupStyle = {
