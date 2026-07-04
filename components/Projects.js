@@ -4,7 +4,7 @@ const projects = [
     description:
       "UCLA small-business directory. Full-stack Next.js + Supabase app with auth, owner-linked listings, image uploads, and review system.",
     tags: ["Next.js", "Supabase", "PostgreSQL"],
-    href: "https://github.com/jeffreyliu",
+    href: "https://github.com/jeffreyl1234/BTWN",
     year: "2025",
   },
   {
@@ -12,24 +12,8 @@ const projects = [
     description:
       "High-performance Monte Carlo simulation for European option delta hedging. Multi-backend: C++ OpenMP, PyTorch GPU, NumPy — 15× speedup over naive Python.",
     tags: ["C++", "Python", "PyTorch", "OpenMP"],
-    href: "https://github.com/jeffreyliu",
+    href: "https://github.com/jeffreyl1234/BTWN/tree/main/gbmdeltahedging",
     year: "2025",
-  },
-  {
-    title: "Project Three",
-    description:
-      "Short description of what this project does and why it is interesting. Replace with your real project.",
-    tags: ["React", "Node.js"],
-    href: "#",
-    year: "2024",
-  },
-  {
-    title: "Project Four",
-    description:
-      "Short description of what this project does and why it is interesting. Replace with your real project.",
-    tags: ["Python", "ML"],
-    href: "#",
-    year: "2024",
   },
 ];
 
@@ -74,7 +58,7 @@ export default function Projects() {
 
 const gridStyle = {
   display: "grid",
-  gridTemplateColumns: "repeat(2, 1fr)",
+  gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
   gap: 16,
 };
 

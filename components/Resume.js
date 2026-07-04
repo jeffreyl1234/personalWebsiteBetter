@@ -1,18 +1,3 @@
-const experience = [
-  {
-    role: "Software Engineering Intern",
-    org: "Company Name",
-    period: "Summer 2025",
-    description: "What you built, what technologies you used, what impact it had.",
-  },
-  {
-    role: "Undergraduate Researcher",
-    org: "UCLA Lab Name",
-    period: "2024 – present",
-    description: "Research focus, methods, and what you contributed to the project.",
-  },
-];
-
 const education = [
   {
     degree: "B.S. Computer Science",
@@ -34,27 +19,11 @@ export default function Resume() {
       <div className="container">
         <div style={topRowStyle}>
           <p className="section-label reveal">Resume</p>
-          <a
-            href="/resume.pdf"
-            className="btn reveal"
-            style={{ marginBottom: 48 }}
-            download
-          >
-            Download PDF
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
-            </svg>
-          </a>
         </div>
 
         <div style={twoColStyle}>
           <div>
-            <p style={groupHeadStyle} className="reveal">Experience</p>
-            {experience.map((e, i) => (
-              <TimelineItem key={e.role} item={e} delay={i + 1} />
-            ))}
-
-            <p style={{ ...groupHeadStyle, marginTop: 48 }} className="reveal">Education</p>
+            <p style={groupHeadStyle} className="reveal">Education</p>
             {education.map((e, i) => (
               <TimelineItem key={e.degree} item={{ role: e.degree, ...e }} delay={i + 1} />
             ))}
@@ -104,7 +73,7 @@ const topRowStyle = {
 
 const twoColStyle = {
   display: "grid",
-  gridTemplateColumns: "3fr 2fr",
+  gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
   gap: "0 64px",
 };
 

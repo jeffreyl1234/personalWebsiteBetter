@@ -15,14 +15,6 @@ const posts = [
       "A practical guide to auth, row-level security, and storage in Supabase — with real patterns I used in production for the BTWN project.",
     slug: "#",
   },
-  {
-    title: "Post title goes here",
-    date: "Nov 2025",
-    readTime: "5 min read",
-    excerpt:
-      "A short summary of what this article is about. Replace this with your actual writing — thoughts, tutorials, or project retrospectives.",
-    slug: "#",
-  },
 ];
 
 export default function Blog() {

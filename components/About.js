@@ -47,7 +47,7 @@ export default function About() {
 
 const gridStyle = {
   display: "grid",
-  gridTemplateColumns: "1fr 1fr",
+  gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
   gap: "48px 64px",
 };
 

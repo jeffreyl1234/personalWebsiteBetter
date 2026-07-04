@@ -35,8 +35,10 @@ const footerStyle = {
 
 const innerStyle = {
   display: "flex",
+  flexWrap: "wrap",
   alignItems: "center",
   justifyContent: "space-between",
+  gap: 16,
 };
 
 const nameStyle = {
